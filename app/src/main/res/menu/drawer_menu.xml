@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIN="navigation_view">
+    <group
+        android:id="@+id/menu_top"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/myAppsItem"
+            android:icon="@drawable/ic_drawer_mypapps_games"
+            android:title="My apps &amp; games" />
+        <item
+            android:id="@+id/notificationMyAppsItem"
+            android:icon="@drawable/ic_drawer_notification"
+            android:title="Notification" />
+        <item
+            android:id="@+id/subscriptionMyAppsItem"
+            android:icon="@drawable/ic_drawer_subscriptions"
+            android:title="Subscription" />
+        <item
+            android:id="@+id/wishListItem"
+            android:icon="@drawable/ic_wishlist"
+            android:title="Wishlist" />
+
+    </group>
+
+    <group
+        android:id="@+id/middleMenu"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/accountItem"
+            android:icon="@drawable/ic_drawer_account"
+            android:title="Account" />
+        <item
+            android:id="@+id/paymentMethodItem"
+            android:icon="@drawable/ic_payment"
+            android:title="Payment Method" />
+        <item
+            android:id="@+id/playProtectItem"
+            android:icon="@drawable/ic_play_protect"
+            android:title="Play Protect" />
+        <item
+            android:id="@+id/settingsItem"
+            android:icon="@drawable/ic_drawer_setting"
+            android:title="Settings" />
+
+    </group>
+
+
+    <item
+        android:id="@+id/redeemItem"
+        android:title="Redeem" />
+    <item
+        android:id="@+id/helpFeedbackItem"
+        android:title="Help &amp; Feedback" />
+    <item
+        android:id="@+id/parentGuideItem"
+        android:title="Parent Guide" />
+    <item
+        android:id="@+id/aboutItem"
+        android:title="About SoftBD Ltd." />
+
+
+</menu>
