@@ -16,15 +16,13 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
-    private SearchView searchView;
-    private MyRecyclerViewAdapter adapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        searchView = findViewById(R.id.searchView);
+        SearchView searchView = findViewById(R.id.searchView);
         Toolbar toolbar = findViewById(R.id.toolBar);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
