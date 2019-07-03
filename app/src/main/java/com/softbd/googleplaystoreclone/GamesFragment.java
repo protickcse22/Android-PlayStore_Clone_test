@@ -37,18 +37,18 @@ public class GamesFragment extends Fragment {
         dataList = new ArrayList<>();
         mContext = container.getContext();
 
-        dataList.add(new ModelData(R.drawable.image1, "Games 1", "123 MB"));
-        dataList.add(new ModelData(R.drawable.image2, "Games 2", "123 MB"));
-        dataList.add(new ModelData(R.drawable.image3, "Games 3", "123 MB"));
-        dataList.add(new ModelData(R.drawable.image4, "Games 4", "123 MB"));
-        dataList.add(new ModelData(R.drawable.image1, "Games 1", "123 MB"));
-        dataList.add(new ModelData(R.drawable.image2, "Games 2", "123 MB"));
-        dataList.add(new ModelData(R.drawable.image3, "Games 3", "123 MB"));
-        dataList.add(new ModelData(R.drawable.image4, "Games 4", "123 MB"));
-        dataList.add(new ModelData(R.drawable.image1, "Games 1", "123 MB"));
-        dataList.add(new ModelData(R.drawable.image2, "Games 2", "123 MB"));
-        dataList.add(new ModelData(R.drawable.image3, "Games 3", "123 MB"));
-        dataList.add(new ModelData(R.drawable.image4, "Games 4", "123 MB"));
+        dataList.add(new ModelData(R.drawable.image1, "Games1", "123 MB"));
+        dataList.add(new ModelData(R.drawable.image2, "Games2", "123 MB"));
+        dataList.add(new ModelData(R.drawable.image3, "Games3", "123 MB"));
+        dataList.add(new ModelData(R.drawable.image4, "Games4", "123 MB"));
+        dataList.add(new ModelData(R.drawable.image1, "Games1", "123 MB"));
+        dataList.add(new ModelData(R.drawable.image2, "Games2", "123 MB"));
+        dataList.add(new ModelData(R.drawable.image3, "Games3", "123 MB"));
+        dataList.add(new ModelData(R.drawable.image4, "Games4", "123 MB"));
+        dataList.add(new ModelData(R.drawable.image1, "Games1", "123 MB"));
+        dataList.add(new ModelData(R.drawable.image2, "Games2", "123 MB"));
+        dataList.add(new ModelData(R.drawable.image3, "Games3", "123 MB"));
+        dataList.add(new ModelData(R.drawable.image4, "Games4", "123 MB"));
 
         adapter = new MyRecyclerViewAdapter(mContext, (ArrayList<ModelData>) dataList);
         mRecyclerView.setAdapter(adapter);

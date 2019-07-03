@@ -11,15 +11,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+    private SearchView searchView;
+    private MyRecyclerViewAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        searchView = findViewById(R.id.searchView);
         Toolbar toolbar = findViewById(R.id.toolBar);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
@@ -47,8 +52,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .add(R.id.frameContainerForApps, appsFragment).commit();
 
 
-    }
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                AppsFragment.adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+    }
 
     @Override
     public void onBackPressed() {

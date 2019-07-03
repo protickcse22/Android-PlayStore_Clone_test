@@ -23,12 +23,14 @@
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-            <android.support.v7.widget.SearchView
+            <SearchView
+                android:id="@+id/searchView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#FFF">
+                android:iconifiedByDefault="false"
+                android:queryHint="Search Here" />
 
-            </android.support.v7.widget.SearchView>
+
         </android.support.v7.widget.Toolbar>
 
 

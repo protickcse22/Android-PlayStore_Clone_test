@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,15 +17,48 @@ import android.widget.Toast;
 import com.softbd.googleplaystoreclone.model.ModelData;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> {
+public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> implements Filterable {
 
     private Context context;
     private ArrayList<ModelData> myArrayList;
+    private ArrayList<ModelData> myArrayListFull;
+    private Filter listFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+
+            List<ModelData> filteredList = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(myArrayListFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (ModelData item : myArrayListFull) {
+                    if (item.getTitle().toLowerCase().trim().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            myArrayList.clear();
+            myArrayList.addAll((ArrayList) results.values);
+            notifyDataSetChanged();
+
+        }
+    };
 
     public MyRecyclerViewAdapter(Context context, ArrayList<ModelData> myArrayList) {
         this.context = context;
         this.myArrayList = myArrayList;
+        myArrayListFull = new ArrayList<>(this.myArrayList);
     }
 
     @NonNull
@@ -52,6 +87,11 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public int getItemCount() {
         return myArrayList.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return listFilter;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
